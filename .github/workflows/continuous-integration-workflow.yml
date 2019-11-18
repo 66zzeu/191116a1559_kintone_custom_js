@@ -1,7 +1,11 @@
 name: kintone customize auto deploy
 # This workflow is triggered on pushes to the repository.
-on: [push]
-
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - "!*"
 jobs:
   build:
     # Job name is Greeting
