@@ -1,3 +1,14 @@
+function array_each(obj, func) {
+    if('number' == typeof obj)
+        for(var index = 0; index < obj; ++index) { var result = func(index); if(result) return result; }
+    else if(undefined !== obj.length)
+        for(var index2 = 0; index2 < obj.length; ++index2) {
+            var result2 = func(obj[index2], index2); if(result2) return result2;
+        }
+    else
+        for(var name in obj) { var result3 = func(obj[name], name); if(result3) return result3; }
+}
+
 function kintone_api(url_part, method, params, succcess_callback) {
     kintone.api(kintone.api.url(url_part), method, params, succcess_callback,
         function(responce) {
