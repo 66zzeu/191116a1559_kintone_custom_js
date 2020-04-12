@@ -1,3 +1,15 @@
+function kintone_api(url_part, method, params, succcess_callback) {
+    kintone.api(kintone.api.url(url_part), method, params, succcess_callback,
+        function(responce) {
+            console.log('Error: ' + url_part);
+            console.log(params);
+            if (responce.message !== undefined) {
+                console.log(resp.message);
+            }
+        }
+    );
+}
+
 function on_show(event) {
     var actions_app_id = kintone.app.getRelatedRecordsTargetAppId('actions');
     // stayやinfo以外を取得し、
